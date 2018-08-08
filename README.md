@@ -1,5 +1,5 @@
 # CRUD-Operations-In-MVC-Using-Dapper
-ASP.NET MVC app using Dapper ORM for CRUD operations, implemented with the Repository pattern.
+ASP.NET MVC app using Dapper ORM for CRUD operations via stored procedures, implemented with the Repository pattern.
 
 # Setup
 Database Schema
