@@ -3,7 +3,7 @@ ASP.NET MVC app using Dapper ORM for CRUD operations
 
 # Setup
 Database Schema
-```
+```SQL
 CREATE TABLE [dbo].[Employee]
 (
 	[Id] INT NOT NULL,
