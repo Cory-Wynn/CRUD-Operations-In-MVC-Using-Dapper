@@ -2,7 +2,8 @@
 using System.Web.Mvc;
 using CRUDUsingDapper.Models;
 using CRUDUsingDapper.Repository;
-namespace CRUDUsingMVC.Controllers
+
+namespace CRUDUsingDapper.Controllers
 {
     public class EmployeeController : Controller
     {
