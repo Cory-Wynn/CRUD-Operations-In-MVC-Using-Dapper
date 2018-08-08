@@ -44,8 +44,7 @@ namespace CRUDUsingDapper.Repository
             {
                 Connection();
                 con.Open();
-                IList<EmpModel> empList = SqlMapper.Query<EmpModel>(
-                                  con, "GetEmployees").ToList();
+                IList<EmpModel> empList = con.Query<EmpModel>("GetEmployees").ToList();
                 con.Close();
                 return empList.ToList();
             }
