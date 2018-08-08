@@ -20,12 +20,13 @@ Create procedure [dbo].[AddNewEmpDetails]
 (  
    @Name varchar (50),  
    @City varchar (50),  
-   @Address varchar (50)
+   @Address varchar (50),
+   @EmpId INT
 )  
 as  
 begin  
    Insert into [dbo].[Employee] values(@Name,@City,@Address)  
-End  
+End 
 ```
 View Employee
 ```SQL
