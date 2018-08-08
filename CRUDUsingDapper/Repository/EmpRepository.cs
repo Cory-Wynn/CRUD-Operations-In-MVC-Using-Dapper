@@ -11,13 +11,13 @@ namespace CRUDUsingDapper.Repository
 {
     public class EmpRepository
     {
-        public SqlConnection con;
+        private SqlConnection _con;
 
         //To Handle connection related activities
         private void Connection()
         {
             string constr = ConfigurationManager.ConnectionStrings["SqlConn"].ToString();
-            con = new SqlConnection(constr);
+            _con = new SqlConnection(constr);
         }
 
         //To Add Employee details
@@ -27,9 +27,9 @@ namespace CRUDUsingDapper.Repository
             try
             {
                 Connection();
-                con.Open();
-                con.Execute("AddNewEmpDetails", objEmp, commandType: CommandType.StoredProcedure);
-                con.Close();
+                _con.Open();
+                _con.Execute("AddNewEmpDetails", objEmp, commandType: CommandType.StoredProcedure);
+                _con.Close();
             }
             catch (Exception ex)
             {
@@ -43,9 +43,9 @@ namespace CRUDUsingDapper.Repository
             try
             {
                 Connection();
-                con.Open();
-                IList<EmpModel> empList = con.Query<EmpModel>("GetEmployees").ToList();
-                con.Close();
+                _con.Open();
+                IList<EmpModel> empList = _con.Query<EmpModel>("GetEmployees").ToList();
+                _con.Close();
                 return empList.ToList();
             }
             catch (Exception)
@@ -60,9 +60,9 @@ namespace CRUDUsingDapper.Repository
             try
             {
                 Connection();
-                con.Open();
-                con.Execute("UpdateEmpDetails", objUpdate, commandType: CommandType.StoredProcedure);
-                con.Close();
+                _con.Open();
+                _con.Execute("UpdateEmpDetails", objUpdate, commandType: CommandType.StoredProcedure);
+                _con.Close();
             }
             catch (Exception)
             {
@@ -78,9 +78,9 @@ namespace CRUDUsingDapper.Repository
                 DynamicParameters param = new DynamicParameters();
                 param.Add("@EmpId", Id);
                 Connection();
-                con.Open();
-                con.Execute("DeleteEmpById", param, commandType: CommandType.StoredProcedure);
-                con.Close();
+                _con.Open();
+                _con.Execute("DeleteEmpById", param, commandType: CommandType.StoredProcedure);
+                _con.Close();
                 return true;
             }
             catch (Exception ex)
