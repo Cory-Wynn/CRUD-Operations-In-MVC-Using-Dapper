@@ -12,3 +12,54 @@ CREATE TABLE [dbo].[Employee]
 	[Address] VARCHAR(50)
 )
 ```
+Stored Procedures
+Insert Employee
+```SQL
+Create procedure [dbo].[AddNewEmpDetails]  
+(  
+   @Name varchar (50),  
+   @City varchar (50),  
+   @Address varchar (50)
+)  
+as  
+begin  
+   Insert into [dbo].[Employee] values(@Name,@City,@Address)  
+End  
+```
+View Employee
+```SQL
+CREATE Procedure [dbo].[GetEmployees]  
+as  
+begin  
+select Id as Empid,Name,City,Address from Employee
+End   
+```
+Update Employee
+```SQL
+Create procedure [dbo].[UpdateEmpDetails]
+(
+@EmpId int,
+@Name varchar (50),
+@City varchar (50),
+@Address varchar (50)
+)
+as
+begin
+Update Employee
+set Name=@Name,
+City=@City,
+Address=@Address
+where Id=@EmpId
+End 
+```
+Delete Employee
+```SQL
+Create procedure [dbo].[DeleteEmpById]
+(
+@EmpId int
+)
+as
+begin
+Delete from Employee where Id=@EmpId
+End 
+```
